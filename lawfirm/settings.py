@@ -77,8 +77,13 @@ WSGI_APPLICATION = 'lawfirm.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'DATABASE_URL': "postgresql://postgres:nE7xRIP5r7ClYAkQqpX1@containers-us-west-1.railway.app:7234/railway",
+        'NAME': "railway",
+        'USER': "postgres",
+        'PASSWORD': "nE7xRIP5r7ClYAkQqpX1",
+        'HOST': "containers-us-west-1.railway.app",
+        'PORT': "7234",
     }
 }
 
