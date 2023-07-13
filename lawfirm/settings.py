@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'origin.apps.OriginConfig',
-
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'origin.User'
+STATIC_URL = '/static/'
+STATIC_ROOT = 'static/'
+MEDIA_ROOT = '%s/origin/static/' % BASE_DIR
+CKEDITOR_UPLOAD_PATH = 'posts/'
