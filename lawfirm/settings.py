@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'origin.apps.OriginConfig',
     'ckeditor',
     'ckeditor_uploader',
+    'corsheaders',
 
 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -147,5 +149,7 @@ STATIC_ROOT = 'static/'
 MEDIA_ROOT = '%s/origin/static/' % BASE_DIR
 CKEDITOR_UPLOAD_PATH = 'posts/'
 
-
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['DELETE', 'GET', 'POST', 'OPTIONS', 'PATCH', 'PUT', ]
+CORS_ALLOW_ORIGINS = ['https://example.com', 'https://127.0.0.1:8000', "https://backend-lawfirm3902.vercel.app" ]
 
