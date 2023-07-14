@@ -10,7 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7w9)_qfa=%17f+=0$j(oxhj$=4+9@sl=52c2yun^(kwkj$#m65'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
@@ -86,15 +92,27 @@ WSGI_APPLICATION = 'lawfirm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'DATABASE_URL': "postgresql://postgres:nE7xRIP5r7ClYAkQqpX1@containers-us-west-1.railway.app:7234/railway",
+#         'NAME': "railway",
+#         'USER': "postgres",
+#         'PASSWORD': "nE7xRIP5r7ClYAkQqpX1",
+#         'HOST': "containers-us-west-1.railway.app",
+#         'PORT': "7234",
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'DATABASE_URL': "postgresql://postgres:nE7xRIP5r7ClYAkQqpX1@containers-us-west-1.railway.app:7234/railway",
-        'NAME': "railway",
-        'USER': "postgres",
-        'PASSWORD': "nE7xRIP5r7ClYAkQqpX1",
-        'HOST': "containers-us-west-1.railway.app",
-        'PORT': "7234",
+        'ENGINE': env('SQL_ENGINE', default='django.db.backends.sqlite3'),
+        'DATABASE_URL': env('SQL_DATABASE_URL', default=''),
+        'NAME': env('SQL_DATABASE', default=os.path.join(BASE_DIR, 'db.sqlite3')),
+        'USER': env('SQL_USER', default='user'),
+        'PASSWORD': env('SQL_PASSWORD', default='password'),
+        'HOST': env('SQL_HOST', default='localhost'),
+        'PORT': env('SQL_PORT', default=''),
     }
 }
 
@@ -149,9 +167,12 @@ REST_FRAMEWORK = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
 AUTH_USER_MODEL = 'origin.User'
+
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = 'static/'
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
 #     "/lawfirm/origin/static/",
