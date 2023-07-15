@@ -59,7 +59,7 @@ class Posts(models.Model):
     active = models.BooleanField(default=True)
     content = RichTextField()
     # content = models.TextField(max_length=255, null=False)
-    file_upload = models.FileField(upload_to='fileUpload/%Y/%m')
+    file_upload = models.FileField(upload_to='fileUpload/%Y/%m', null=True, blank=True)
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
