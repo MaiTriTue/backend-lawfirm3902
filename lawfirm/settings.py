@@ -92,29 +92,29 @@ WSGI_APPLICATION = 'lawfirm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'DATABASE_URL': "postgresql://postgres:nE7xRIP5r7ClYAkQqpX1@containers-us-west-1.railway.app:7234/railway",
-#         'NAME': "railway",
-#         'USER': "postgres",
-#         'PASSWORD': "nE7xRIP5r7ClYAkQqpX1",
-#         'HOST': "containers-us-west-1.railway.app",
-#         'PORT': "7234",
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': env('SQL_ENGINE', default='django.db.backends.sqlite3'),
-        'DATABASE_URL': env('SQL_DATABASE_URL', default=''),
-        'NAME': env('SQL_DATABASE', default=os.path.join(BASE_DIR, 'db.sqlite3')),
-        'USER': env('SQL_USER', default='user'),
-        'PASSWORD': env('SQL_PASSWORD', default='password'),
-        'HOST': env('SQL_HOST', default='localhost'),
-        'PORT': env('SQL_PORT', default=''),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'DATABASE_URL': "postgresql://postgres:ie49GSK05Lp67LdQdw1g@containers-us-west-30.railway.app:5878/railway",
+        'NAME': "railway",
+        'USER': "postgres",
+        'PASSWORD': "ie49GSK05Lp67LdQdw1g",
+        'HOST': "containers-us-west-30.railway.app",
+        'PORT': "5878",
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': env('SQL_ENGINE', default='django.db.backends.sqlite3'),
+#         'DATABASE_URL': env('SQL_DATABASE_URL', default=''),
+#         'NAME': env('SQL_DATABASE', default=os.path.join(BASE_DIR, 'db.sqlite3')),
+#         'USER': env('SQL_USER', default='user'),
+#         'PASSWORD': env('SQL_PASSWORD', default='password'),
+#         'HOST': env('SQL_HOST', default='localhost'),
+#         'PORT': env('SQL_PORT', default=''),
+#     }
+# }
 
 
 # Password validation
