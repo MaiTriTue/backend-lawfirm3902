@@ -61,6 +61,7 @@ class Posts(models.Model):
     # content = models.TextField(max_length=255, null=False)
     file_upload = models.FileField(upload_to='fileUpload/%Y/%m')
     subcategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         return self.title
