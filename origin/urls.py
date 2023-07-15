@@ -16,8 +16,8 @@ router.register('tagfield', views.TagFieldViewSet, basename='tagfield')
 
 
 urlpatterns = [
-    # path('admin/', admin_site.urls),
-    path('', views.index, name="index"),
+    path('admin/', admin_site.urls),
+    # path('', views.index, name="index"),
     path('', include(router.urls)),
 
 ]

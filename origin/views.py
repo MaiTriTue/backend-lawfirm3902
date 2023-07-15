@@ -60,17 +60,17 @@ class TagFieldViewSet(viewsets.ModelViewSet):
     serializer_class = TagFieldSerealizer
 
 def index(request):
-    if not User.objects.filter(is_superuser=True).first():
-        # user = User.objects.filter(is_superuser=True).first()
-        # user.delete()
-        user = User.objects.create(
-            username='admin',
-            email='luatsuhuyvinh@gmail.com',
-            is_superuser=True,
-
-        )
-        user.set_password('huyvinh1986')
-        user.save()
+    # if not User.objects.filter(is_superuser=True).first():
+    #     # user = User.objects.filter(is_superuser=True).first()
+    #     # user.delete()
+    #     user = User.objects.create(
+    #         username='admin',
+    #         email='luatsuhuyvinh@gmail.com',
+    #         is_superuser=True,
+    #
+    #     )
+    #     user.set_password('huyvinh1986')
+    #     user.save()
 
     return render(request, template_name="index.html", context={
         'name': "Mai tri Tue"
