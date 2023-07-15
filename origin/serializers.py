@@ -29,7 +29,7 @@ class SubCategorySerealizer(ModelSerializer):
 class PostSerealizer(ModelSerializer):
     class Meta:
         model = Posts
-        fields = ["id", "title", "disc", "image", "created_date", "updated_date", "active", "content", "file_upload", "subcategory" ]
+        fields = ["id", "title", "disc", "image", "created_date", "updated_date", "active", "content", "file_upload", "subcategory", "author"]
 
 
 class ContactSerealizer(ModelSerializer):
