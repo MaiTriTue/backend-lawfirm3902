@@ -60,6 +60,17 @@ class TagFieldViewSet(viewsets.ModelViewSet):
     serializer_class = TagFieldSerealizer
 
 def index(request):
+    TagField.objects.get_or_create(name="Dân sự")
+    TagField.objects.get_or_create(name="Hình sự")
+    TagField.objects.get_or_create(name="Hôn nhân")
+    TagField.objects.get_or_create(name="Đất đai")
+    TagField.objects.get_or_create(name="Doanh nghiệp")
+    TagField.objects.get_or_create(name="Sở hữu trí tuệ")
+    TagField.objects.get_or_create(name="Lao động")
+    TagField.objects.get_or_create(name="Đấu thầu")
+    TagField.objects.get_or_create(name="Hành chính")
+
+
     # Category.objects.get_or_create(name="DỊCH VỤ LUẬT SƯ", slug="dich-vu-luat-su")
     # Category.objects.get_or_create(name="TƯ VẤN PHÁP LUẬT", slug="tu-van-phap-luat")
     # Category.objects.get_or_create(name="VĂN BẢN PHÁP LUẬT", slug="van-ban-phap-luat")

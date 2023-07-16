@@ -46,8 +46,9 @@ class SubCategoryAdmin(admin.ModelAdmin):
 
 
 class PostsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'disc', 'image', 'created_date', 'updated_date', 'active', 'content', 'file_upload',
-                    'subcategory', "author"]
+    # list_display = ['id', 'title', 'disc', 'image', 'created_date', 'updated_date', 'active', 'content', 'file_upload',
+    #                 'subcategory', "author"]
+    list_display = ['id', 'title', 'image', 'created_date', 'updated_date', 'active', 'subcategory', "author"]
     search_fields = ['id', 'title', 'created_date', 'subcategory__name', "author__name"]
     list_filter = ['id', 'title', 'disc', 'image', 'created_date', 'subcategory__name', "author__first_name"]
     form = PostForm

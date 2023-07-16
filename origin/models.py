@@ -19,7 +19,6 @@ class User(AbstractUser):
 
     avatar = models.ImageField(upload_to='upload/%Y/%m')
     position = models.CharField(max_length=255,  null=False)
-    field = models.CharField(max_length=255,  null=False)
     experience = models.CharField(max_length=255,  null=False)
     level = models.CharField(max_length=255,  null=False)
     phone = models.CharField(max_length=10,  null=False)
