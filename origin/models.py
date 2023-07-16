@@ -32,6 +32,7 @@ class Category(models.Model):
         ordering = ['id']
 
     name = models.CharField(max_length=255,  null=False, unique=True)
+    slug = models.CharField(max_length=255, null=False, unique=True, default=None)
 
     def __str__(self):
         return self.name
@@ -41,6 +42,7 @@ class SubCategory(models.Model):
         ordering = ['id']
 
     name = models.CharField(max_length=255, null=False, unique=True)
+    slug = models.CharField(max_length=255, null=False, unique=True,  default=None)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -51,6 +53,7 @@ class Posts(models.Model):
         ordering = ['id']
 
     title = models.CharField(max_length=255, null=False)
+    slug = models.CharField(max_length=255, null=False, unique=True, default=None)
     disc = RichTextField()
     # disc = models.TextField(max_length=255, null=False)
     image = models.CharField(max_length=255, null=False)
