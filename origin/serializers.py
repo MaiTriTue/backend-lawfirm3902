@@ -10,7 +10,7 @@ class TagFieldSerealizer(ModelSerializer):
 class UserSerealizer(ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "avatar", "position", "field", "experience", "level", "phone", "tagsField"]
+        fields = ["id", "avatar", "position",  "experience", "level", "phone", "tagsField"]
 
     tagsField = TagFieldSerealizer(many=True)
 
